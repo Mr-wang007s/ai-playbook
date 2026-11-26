@@ -1,0 +1,19 @@
+# AGENTS.md
+
+> 项目级 AI 协作说明书（Cursor、Gemini / Antigravity 原生自动加载；若同时使用 Claude Code，可在同目录建 `CLAUDE.md` 并写入一行 `@AGENTS.md` 实现单源共用）。
+
+## 1. 架构概览与关键目录
+- `src/`：[核心业务模块职责说明]
+- `packages/`：[若是 Monorepo，列出关键子包及其上下游依赖关系]
+
+## 2. 常用定向命令（优先跑单文件/单包，禁止盲跑全仓）
+- **定向单元测试**：`pnpm --filter <pkg> test <path/to/file.test.ts>`
+- **定向 Lint 检查**：`npx eslint <path/to/changed-file.ts>`
+- **定向类型检查**：`pnpm --filter <pkg> run typecheck`
+
+## 3. 高危禁区与隐性契约（必读）
+- **构建产物勿手改**：[列出自动生成或拷贝产物目录，指明其真实源码位置]
+- **共享模块爆炸半径**：[列出被多端复用的底层目录，修改前必须全局搜索调用方]
+
+## 4. 代码与测试规范补充
+- [只写工具配置里看不出来的特殊约定，例如特定状态管理方式、Mock 规范、行宽或测试执行时机要求]

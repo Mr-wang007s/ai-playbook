@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ai-playbook",
+  "description": "Personal AI coding workflow plugin: plan-to-runbook compiler, adversarial code reviewer, and skill distiller.",
+  "owner": {
+    "name": "Mr-wang007s",
+    "url": "https://github.com/Mr-wang007s"
+  },
+  "plugins": [
+    {
+      "name": "ai-playbook",
+      "source": "./",
+      "description": "Compile plans into zero-ambiguity runbooks for lightweight models, audit diffs with frontier models, and distill reusable coding workflows.",
+      "category": "development"
+    }
+  ]
+}

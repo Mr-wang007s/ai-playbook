@@ -1,0 +1,13 @@
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
+
+# Backup & local override files
+*.bak
+*.bak.*
+*.local
+*.local.md
