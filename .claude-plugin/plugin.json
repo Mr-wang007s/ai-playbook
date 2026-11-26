@@ -1,6 +1,6 @@
 {
   "name": "ai-playbook",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "High-leverage AI coding workflows: compile plans into zero-ambiguity runbooks for fast models, run strict post-implementation audits with frontier models, and distill engineering lessons.",
   "author": {
     "name": "Mr-wang007s",
