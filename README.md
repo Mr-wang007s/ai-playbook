@@ -14,7 +14,7 @@
 flowchart LR
   Discuss["1. 强模型讨论方案\n(Plan Mode 对齐思路)"] --> Runbook["2. plan-runbook\n(强模型编译零推理施工手册)"]
   Runbook --> Exec["3. 弱/快模型执行\n(按手册锚点逐步替换)"]
-  Exec --> Audit["4. strict-review\n(切回强模型对抗式终审)"]
+  Exec -->   Audit["4. strict-review\n(实证门禁终审)"]
   Audit --> Distill["5. distill-skill\n(踩坑后一键提炼沉淀)"]
 ```
 
@@ -23,7 +23,7 @@ flowchart LR
 | 技能名 | 适用模型 | 作用说明 |
 | :--- | :--- | :--- |
 | **`plan-runbook`** | 强模型（规划侧） | 亲自读透源码、类型与 Lint 约束，将粗粒度方案编译为包含**白名单文件、唯一 `Before/After` 完整代码锚点、异常停机准则与定向验证命令**的精确施工手册，消除弱模型自由发挥空间。 |
-| **`strict-review`** | 强模型（验收侧） | 实现完成后以对抗式 Reviewer 视角对 `git diff` 与原计划逐项对账，重点排查**越界修改、遗漏分支、缓存/竞态边界、破坏上下游契约、以及“测 Mock 自嗨”的假单测**，输出精确到 `file:line` 的审查结论。 |
+| **`strict-review`** | 强模型（验收侧） | 实现完成后以实证门禁视角审查 `git diff`（及可选计划/Runbook），经过**可达性、消费方、坏结果**反证过滤，只报告真实缺陷（越界修改、逻辑错误、契约破坏、假单测），无实质问题直接给出 `PASS`。 |
 | **`distill-skill`** | 任意主力模型 | 在某次对话中花多轮把 AI 纠偏成功后，将实战经验按作用域分拣沉淀回本插件仓库 `skills/` 或业务仓库的 `AGENTS.md`。 |
 
 ---
@@ -105,7 +105,7 @@ ai-playbook/
 │       └── bump-version.yml               # Push 到 main 自动递增 patch 版本号
 ├── skills/                                # 核心技能与命令定义
 │   ├── plan-runbook/                      # 编译弱模型零推理施工手册
-│   ├── strict-review/                     # 强模型对抗式代码审查
+│   ├── strict-review/                     # 实证门禁代码审查
 │   └── distill-skill/                     # 实战经验分类萃取沉淀
 ├── rules/
 │   └── global-coding-rules.md             # L1 全局底线规则参考模板
